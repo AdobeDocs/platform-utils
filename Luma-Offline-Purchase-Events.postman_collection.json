@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Create Luma Identity ExperienceEvent Mixin",
+			"name": "Create Luma Identity ExperienceEvent Field Group",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -39,7 +39,7 @@
 							"    pm.response.to.have.status(201)",
 							"})",
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"luma_identity_experience_event_mixin_id\", jsonData[\"$id\"]);"
+							"postman.setEnvironmentVariable(\"luma_identity_experience_event_fieldgroup_id\", jsonData[\"$id\"]);"
 						],
 						"type": "text/javascript"
 					}
@@ -83,10 +83,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Identity ExperienceEvent Mixin\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"systemIdentifier\": {\n                    \"title\": \"System Identifier\",\n                    \"description\": \"\",\n                    \"isRequired\": false,\n                    \"type\": \"object\",\n                    \"meta:xdmType\": \"object\",\n                    \"properties\": {\n                        \"loyaltyId\": {\n                            \"title\": \"Loyalty Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\",\n                            \"meta:ui\": {\n                                \"ref\": [\n                                    \"{{luma_identity_profile_mixin_id}}\",\n                                    \"#/definitions/customFields\"\n                                ],\n                                \"path\": \"{}._techmarketingdemos{}.systemIdentifier{}.loyaltyId\",\n                                \"editable\": true,\n                                \"generateDate\": 1597855917182\n                            }\n                        },\n                        \"crmId\": {\n                            \"title\": \"CRM Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\",\n                            \"meta:ui\": {\n                                \"ref\": [\n                                    \"{{luma_identity_profile_mixin_id}\",\n                                    \"#/definitions/customFields\"\n                                ],\n                                \"path\": \"{}._techmarketingdemos{}.systemIdentifier{}.crmId\",\n                                \"editable\": true,\n                                \"generateDate\": 1597855917182\n                            }\n                        }\n                    },\n                    \"meta:referencedFrom\": \"{{system_identifier_dataype_id}}\"\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/experienceevent\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:tenantNamespace\": \"_techmarketingdemos\"\n}"
+					"raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Identity ExperienceEvent Field Group\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"systemIdentifier\": {\n                    \"title\": \"System Identifier\",\n                    \"description\": \"\",\n                    \"isRequired\": false,\n                    \"type\": \"object\",\n                    \"meta:xdmType\": \"object\",\n                    \"properties\": {\n                        \"loyaltyId\": {\n                            \"title\": \"Loyalty Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\",\n                            \"meta:ui\": {\n                                \"ref\": [\n                                    \"{{luma_identity_profile_fieldgroup_id}}\",\n                                    \"#/definitions/customFields\"\n                                ],\n                                \"path\": \"{}._techmarketingdemos{}.systemIdentifier{}.loyaltyId\",\n                                \"editable\": true,\n                                \"generateDate\": 1597855917182\n                            }\n                        },\n                        \"crmId\": {\n                            \"title\": \"CRM Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\",\n                            \"meta:ui\": {\n                                \"ref\": [\n                                    \"{{luma_identity_profile_fieldgroup_id}\",\n                                    \"#/definitions/customFields\"\n                                ],\n                                \"path\": \"{}._techmarketingdemos{}.systemIdentifier{}.crmId\",\n                                \"editable\": true,\n                                \"generateDate\": 1597855917182\n                            }\n                        }\n                    },\n                    \"meta:referencedFrom\": \"{{system_identifier_dataype_id}}\"\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/experienceevent\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:tenantNamespace\": \"_techmarketingdemos\"\n}"
 				},
 				"url": {
-					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/mixins",
+					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/fieldgroups",
 					"protocol": "https",
 					"host": [
 						"platform",
@@ -182,7 +182,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Offline Purchase Events Schema\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"allOf\": [\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/experienceevent-commerce\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/experienceevent\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_identity_experience_event_mixin_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/data/time-series\",\n        \"https://ns.adobe.com/xdm/context/experienceevent-commerce\",\n        \"https://ns.adobe.com/xdm/context/experienceevent\",\n        \"{{luma_identity_experience_event_mixin_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:class\": \"https://ns.adobe.com/xdm/context/experienceevent\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
+					"raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Offline Purchase Events Schema\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"allOf\": [\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/experienceevent-commerce\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/experienceevent\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_identity_experience_event_fieldgroup_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/data/time-series\",\n        \"https://ns.adobe.com/xdm/context/experienceevent-commerce\",\n        \"https://ns.adobe.com/xdm/context/experienceevent\",\n        \"{{luma_identity_experience_event_fieldgroup_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:class\": \"https://ns.adobe.com/xdm/context/experienceevent\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
 				},
 				"url": {
 					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/schemas",
@@ -418,7 +418,7 @@
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/Users/krishnakumar/Downloads/luma-data/luma-offline-purchases.json"
+						"src": "{{FILE_PATH}}/luma-data/luma-offline-purchases.json"
 					}
 				},
 				"url": {

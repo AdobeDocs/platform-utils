@@ -105,7 +105,7 @@
 			"response": []
 		},
 		{
-			"name": "Create Luma Product Catalog Mixin",
+			"name": "Create Luma Product Catalog Field Group",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -138,7 +138,7 @@
 							"    pm.response.to.have.status(201)",
 							"})",
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"luma_product_catalog_mixin_id\", jsonData[\"$id\"]);"
+							"postman.setEnvironmentVariable(\"luma_product_catalog_fieldgroup_id\", jsonData[\"$id\"]);"
 						],
 						"type": "text/javascript"
 					}
@@ -182,10 +182,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Product Catalog Mixin\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"productName\": {\n                    \"title\": \"Product Name\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productCategory\": {\n                    \"title\": \"Product Category\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productColor\": {\n                    \"title\": \"Product Color\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productSize\": {\n                    \"title\": \"Product Size\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productPrice\": {\n                    \"title\": \"Product Price\",\n                    \"description\": \"\",\n                    \"type\": \"number\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"number\"\n                },\n                \"productSku\": {\n                    \"title\": \"Product SKU\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": true,\n                    \"meta:xdmType\": \"string\"\n                }\n            },\n            \"meta:xdmType\": \"object\",\n            \"required\": [\n                \"productSku\"\n            ]\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"{{luma_product_catalog_class_id}}\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
+					"raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Product Catalog Field Group\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"productName\": {\n                    \"title\": \"Product Name\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productCategory\": {\n                    \"title\": \"Product Category\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productColor\": {\n                    \"title\": \"Product Color\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productSize\": {\n                    \"title\": \"Product Size\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"string\"\n                },\n                \"productPrice\": {\n                    \"title\": \"Product Price\",\n                    \"description\": \"\",\n                    \"type\": \"number\",\n                    \"isRequired\": false,\n                    \"meta:xdmType\": \"number\"\n                },\n                \"productSku\": {\n                    \"title\": \"Product SKU\",\n                    \"description\": \"\",\n                    \"type\": \"string\",\n                    \"isRequired\": true,\n                    \"meta:xdmType\": \"string\"\n                }\n            },\n            \"meta:xdmType\": \"object\",\n            \"required\": [\n                \"productSku\"\n            ]\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"{{luma_product_catalog_class_id}}\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
 				},
 				"url": {
-					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/mixins",
+					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/fieldgroups",
 					"protocol": "https",
 					"host": [
 						"platform",
@@ -281,7 +281,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Product Catalog Schema\",\n    \"type\": \"object\",\n    \"description\": \"Luma Product Catalog Schema\",\n    \"allOf\": [\n        {\n            \"$ref\": \"{{luma_product_catalog_class_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_product_catalog_mixin_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/data/record\",\n        \"{{luma_product_catalog_mixin_id}}\",\n        \"{{luma_product_catalog_class_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
+					"raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Product Catalog Schema\",\n    \"type\": \"object\",\n    \"description\": \"Luma Product Catalog Schema\",\n    \"allOf\": [\n        {\n            \"$ref\": \"{{luma_product_catalog_class_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_product_catalog_fieldgroup_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/data/record\",\n        \"{{luma_product_catalog_fieldgroup_id}}\",\n        \"{{luma_product_catalog_class_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
 				},
 				"url": {
 					"raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/schemas",

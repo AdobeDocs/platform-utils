@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "Create Identity Profile Mixin",
+      "name": "Create Identity Profile Field Group",
       "event": [
         {
           "listen": "prerequest",
@@ -39,7 +39,7 @@
               "    pm.response.to.have.status(201)",
               "})",
               "var jsonData = JSON.parse(responseBody);",
-              "postman.setEnvironmentVariable(\"luma_identity_profile_mixin_id\", jsonData[\"$id\"]);"
+              "postman.setEnvironmentVariable(\"luma_identity_profile_fieldgroup_id\", jsonData[\"$id\"]);"
             ],
             "type": "text/javascript"
           }
@@ -83,10 +83,10 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Identity Profile Mixin\",\n    \"type\": \"object\",\n    \"description\": \"Luma Identity Profile Mixin\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"systemIdentifier\": {\n                    \"title\": \"System Identifier\",\n                    \"description\": \"\",\n                    \"type\": \"object\",\n                    \"meta:xdmType\": \"object\",\n                    \"properties\": {\n                        \"loyaltyId\": {\n                            \"title\": \"Loyalty Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\"\n                        },\n                        \"crmId\": {\n                            \"title\": \"CRM Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\"\n                        }\n                    }\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/profile\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
+          "raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Identity Profile Field Group\",\n    \"type\": \"object\",\n    \"description\": \"Luma Identity Profile Field Group\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"systemIdentifier\": {\n                    \"title\": \"System Identifier\",\n                    \"description\": \"\",\n                    \"type\": \"object\",\n                    \"meta:xdmType\": \"object\",\n                    \"properties\": {\n                        \"loyaltyId\": {\n                            \"title\": \"Loyalty Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\"\n                        },\n                        \"crmId\": {\n                            \"title\": \"CRM Id\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"string\"\n                        }\n                    }\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/profile\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
         },
         "url": {
-          "raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/mixins",
+          "raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/fieldgroups",
           "protocol": "https",
           "host": ["platform", "adobe", "io"],
           "path": ["data", "foundation", "schemaregistry", "tenant", "mixins"]
@@ -197,7 +197,7 @@
       "response": []
     },
     {
-      "name": "Create Loyalty Mixin",
+      "name": "Create Loyalty Field Group",
       "event": [
         {
           "listen": "prerequest",
@@ -230,7 +230,7 @@
               "    pm.response.to.have.status(201)",
               "})",
               "var jsonData = JSON.parse(responseBody);",
-              "postman.setEnvironmentVariable(\"luma_loyalty_mixin_id\", jsonData[\"$id\"]);"
+              "postman.setEnvironmentVariable(\"luma_loyalty_fieldgroup_id\", jsonData[\"$id\"]);"
             ],
             "type": "text/javascript"
           }
@@ -274,10 +274,10 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Loyalty Mixin\",\n    \"type\": \"object\",\n    \"description\": \"Loyalty Program Mixin to describe members of the Loyalty Program.\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"loyalty\": {\n                    \"title\": \"Loyalty\",\n                    \"description\": \"\",\n                    \"type\": \"object\",\n                    \"isRequired\": false,\n                    \"properties\": {\n                        \"memberSince\": {\n                            \"title\": \"Member Since\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"format\": \"date\",\n                            \"meta:xdmType\": \"date\"\n                        },\n                        \"points\": {\n                            \"title\": \"Points\",\n                            \"description\": \"\",\n                            \"type\": \"integer\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"int\"\n                        },\n                        \"level\": {\n                            \"title\": \"Level\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"enum\": [\n                                \"bronze\",\n                                \"silver\",\n                                \"gold\",\n                                \"platinum\"\n                            ],\n                            \"meta:enum\": {\n                                \"bronze\": \"Bronze\",\n                                \"silver\": \"Silver\",\n                                \"gold\": \"Gold\",\n                                \"platinum\": \"Platinum\"\n                            },\n                            \"meta:xdmType\": \"string\"\n                        }\n                    },\n                    \"meta:xdmType\": \"object\"\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/profile\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
+          "raw": "{\n    \"meta:resourceType\": \"mixins\",\n    \"title\": \"Luma Loyalty Field Group\",\n    \"type\": \"object\",\n    \"description\": \"Loyalty Program Field Group to describe members of the Loyalty Program.\",\n    \"properties\": {\n        \"_techmarketingdemos\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"loyalty\": {\n                    \"title\": \"Loyalty\",\n                    \"description\": \"\",\n                    \"type\": \"object\",\n                    \"isRequired\": false,\n                    \"properties\": {\n                        \"memberSince\": {\n                            \"title\": \"Member Since\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"format\": \"date\",\n                            \"meta:xdmType\": \"date\"\n                        },\n                        \"points\": {\n                            \"title\": \"Points\",\n                            \"description\": \"\",\n                            \"type\": \"integer\",\n                            \"isRequired\": false,\n                            \"meta:xdmType\": \"int\"\n                        },\n                        \"level\": {\n                            \"title\": \"Level\",\n                            \"description\": \"\",\n                            \"type\": \"string\",\n                            \"isRequired\": false,\n                            \"enum\": [\n                                \"bronze\",\n                                \"silver\",\n                                \"gold\",\n                                \"platinum\"\n                            ],\n                            \"meta:enum\": {\n                                \"bronze\": \"Bronze\",\n                                \"silver\": \"Silver\",\n                                \"gold\": \"Gold\",\n                                \"platinum\": \"Platinum\"\n                            },\n                            \"meta:xdmType\": \"string\"\n                        }\n                    },\n                    \"meta:xdmType\": \"object\"\n                }\n            },\n            \"meta:xdmType\": \"object\"\n        }\n    },\n    \"meta:extensible\": true,\n    \"meta:abstract\": true,\n    \"meta:intendedToExtend\": [\n        \"https://ns.adobe.com/xdm/context/profile\"\n    ],\n    \"meta:xdmType\": \"object\"\n}"
         },
         "url": {
-          "raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/mixins",
+          "raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/fieldgroups",
           "protocol": "https",
           "host": ["platform", "adobe", "io"],
           "path": ["data", "foundation", "schemaregistry", "tenant", "mixins"]
@@ -363,7 +363,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Loyalty Schema\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"allOf\": [\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile-personal-details\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile-person-details\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_loyalty_mixin_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_identity_profile_mixin_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/context/profile-person-details\",\n        \"https://ns.adobe.com/xdm/context/profile-personal-details\",\n        \"https://ns.adobe.com/xdm/common/auditable\",\n        \"https://ns.adobe.com/xdm/data/record\",\n        \"https://ns.adobe.com/xdm/context/profile\",\n        \"{{luma_loyalty_mixin_id}}\",\n        \"{{luma_identity_profile_mixin_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
+          "raw": "{\n    \"meta:resourceType\": \"schemas\",\n    \"title\": \"Luma Loyalty Schema\",\n    \"type\": \"object\",\n    \"description\": \"\",\n    \"allOf\": [\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile-personal-details\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"https://ns.adobe.com/xdm/context/profile-person-details\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_loyalty_fieldgroup_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        },\n        {\n            \"$ref\": \"{{luma_identity_profile_fieldgroup_id}}\",\n            \"type\": \"object\",\n            \"meta:xdmType\": \"object\"\n        }\n    ],\n    \"meta:extensible\": false,\n    \"meta:abstract\": false,\n    \"meta:extends\": [\n        \"https://ns.adobe.com/xdm/context/profile-person-details\",\n        \"https://ns.adobe.com/xdm/context/profile-personal-details\",\n        \"https://ns.adobe.com/xdm/common/auditable\",\n        \"https://ns.adobe.com/xdm/data/record\",\n        \"https://ns.adobe.com/xdm/context/profile\",\n        \"{{luma_loyalty_fieldgroup_id}}\",\n        \"{{luma_identity_profile_fieldgroup_id}}\"\n    ],\n    \"meta:xdmType\": \"object\",\n    \"meta:immutableTags\": [\n        \"union\"\n    ]\n}"
         },
         "url": {
           "raw": "https://platform.adobe.io/data/foundation/schemaregistry/tenant/schemas",
